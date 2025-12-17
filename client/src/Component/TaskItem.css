@@ -1,0 +1,256 @@
+.task-item {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 5px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.task-item.todo {
+  border-left-color: #ffd93d;
+}
+
+.task-item.in-progress {
+  border-left-color: #4a6bff;
+}
+
+.task-item.completed {
+  border-left-color: #6bcf7f;
+  opacity: 0.9;
+}
+
+.task-item.overdue {
+  border-left-color: #ff6b6b;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.task-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-toggle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.status-toggle:hover {
+  border-color: #4a6bff;
+  color: #4a6bff;
+  transform: scale(1.1);
+}
+
+.status-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #666;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background: #f8f9fa;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.edit-btn:hover {
+  background: #4a6bff;
+  color: white;
+  transform: rotate(15deg);
+}
+
+.delete-btn:hover {
+  background: #ff6b6b;
+  color: white;
+  transform: scale(1.1);
+}
+
+.task-title {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.task-description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.task-footer {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.priority-badge {
+  padding: 4px 12px;
+  border-radius: 15px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.due-date {
+  padding: 4px 10px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: #666;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.due-date.overdue {
+  color: #ff6b6b;
+  background: #ffebee;
+  font-weight: 600;
+}
+
+.overdue-badge {
+  background: #ff6b6b;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.created-date {
+  font-size: 0.8rem;
+  color: #999;
+  margin-left: auto;
+}
+
+/* Edit Form Styles */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.edit-input,
+.edit-textarea,
+.edit-select,
+.edit-date {
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.edit-input:focus,
+.edit-textarea:focus,
+.edit-select:focus,
+.edit-date:focus {
+  outline: none;
+  border-color: #4a6bff;
+}
+
+.edit-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.edit-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.save-btn,
+.cancel-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.save-btn {
+  background: #4a6bff;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #3a5af1;
+  transform: translateY(-2px);
+}
+
+.cancel-btn {
+  background: #f8f9fa;
+  color: #666;
+  border: 2px solid #e0e0e0;
+}
+
+.cancel-btn:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
